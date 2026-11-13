@@ -2,6 +2,7 @@
   "name": "smepay-node",
   "version": "0.1.0",
   "description": "Official Node.js SDK for the SMEPay External API (UPI payments).",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
