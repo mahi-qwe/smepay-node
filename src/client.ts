@@ -1,6 +1,7 @@
 import { TokenManager } from "./auth";
 import { SMEPayError } from "./errors";
 import { postJSON } from "./http";
+import { PaymentResource } from "./resources/payment";
 
 export type Environment = "test" | "live";
 
@@ -65,7 +66,8 @@ export class ApiClient {
 
 export class SMEPay {
   readonly environment: Environment;
-  readonly #api: ApiClient;
+  /** payment.create → payment.initiate → payment.getStatus */
+  readonly payment: PaymentResource;
 
   constructor(config: SMEPayConfig) {
     if (!config || typeof config !== "object") {
@@ -83,11 +85,12 @@ export class SMEPay {
     }
 
     this.environment = environment;
-    this.#api = new ApiClient({
+    const api = new ApiClient({
       baseUrl: BASE_URLS[environment],
       clientId: clientId.trim(),
       clientSecret: clientSecret.trim(),
     });
+    this.payment = new PaymentResource(api);
   }
 }
 
