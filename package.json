@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "Official Node.js SDK for the SMEPay External API (UPI payments).",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahi-qwe/smepay-node.git"
+  },
+  "homepage": "https://github.com/mahi-qwe/smepay-node#readme",
+  "bugs": {
+    "url": "https://github.com/mahi-qwe/smepay-node/issues"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
